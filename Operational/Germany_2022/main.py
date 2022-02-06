@@ -4,7 +4,13 @@
 import pandas as pd
 import cvxpy as cp
 from plotly import graph_objects as go
-
+#%%
+file = pd.read_excel(
+    '/Users/mohammadamintahavori/Downloads/Total Load - Day Ahead _ Actual_202101010000-202201010000-2.xlsx',
+    index_col = [0],
+    header = [6,7]
+)
+file.index = [i for  i in range (8760) for j in range(4)]
 #%%
 def get_position(specific_techs,all_techs):
     return [i for i,j in enumerate(all_techs) if i in specific_techs]
